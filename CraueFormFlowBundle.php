@@ -3,6 +3,7 @@
 namespace Craue\FormFlowBundle;
 
 use Craue\FormFlowBundle\DependencyInjection\Compiler\ReplaceFormExtensionsCompilerPass;
+use Craue\FormFlowBundle\DependencyInjection\Compiler\UseRequestStackCompilerPass;
 use Craue\FormFlowBundle\Util\TempFileUtil;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -34,6 +35,7 @@ class CraueFormFlowBundle extends Bundle {
 		parent::build($container);
 
 		$container->addCompilerPass(new ReplaceFormExtensionsCompilerPass());
+		$container->addCompilerPass(new UseRequestStackCompilerPass());
 	}
 
 }
